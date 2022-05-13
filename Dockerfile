@@ -6,6 +6,8 @@ RUN mkdir /heroku
 ADD etc/Caddyfile /heroku/Caddyfile
 ADD etc/xray.json /heroku/xray.json
 ADD start.sh /start.sh
+# 环境变量
+ARG CADDYIndexPage=$CADDYIndexPage
 # 执行构建命令
 RUN apk update && \
     apk add --no-cache ca-certificates caddy  wget && \
