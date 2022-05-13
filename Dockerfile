@@ -6,8 +6,6 @@ RUN mkdir /heroku
 ADD etc/Caddyfile /heroku/Caddyfile
 ADD etc/xray.json /heroku/xray.json
 ADD start.sh /start.sh
-# 环境变量
-ARG CADDYIndexPage=$CADDYIndexPage
 # 执行构建命令
 RUN apk update && \
     apk add --no-cache ca-certificates caddy  wget && \
@@ -17,7 +15,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*  && \
     rm Xray-linux-64.zip  && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt  && \
-    wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/  && \
+    wget https://github.com/AYJCSGM/mikutap/archive/master.zip -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/  && \
     chmod +x /start.sh  && \
     rm -rf /tmp/* 
 # 添加启动脚本
