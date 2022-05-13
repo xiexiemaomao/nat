@@ -15,7 +15,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*  && \
     rm Xray-linux-64.zip  && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt  && \
-    wget https://github.com/AYJCSGM/mikutap/archive/master.zip -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/  && \
+    wget https://github.com/xiexiemaomao/mikutap/archive/master.zip -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/  && \
     chmod +x /start.sh  && \
     rm -rf /tmp/* 
 # 添加启动脚本
